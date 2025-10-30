@@ -39,7 +39,7 @@ controller.retrieveAll = async function(req, res) {
     // Somente usuários administradores podem acessar este recurso
     // HTTP 403: Forbidden(
     if(! req?.authUser?.is_admin) return res.status(403).end()
-      
+
     const result = await prisma.user.findMany(
       // Omite o campo "password" do resultado
       // por questão de segurança
@@ -66,7 +66,7 @@ controller.retrieveOne = async function(req, res) {
     if(! (req?.authUser?.is_admin || 
       Number(req?.authUser?.id) === Number(req.params.id))) 
       return res.status(403).end()
-      
+
     const result = await prisma.user.findUnique({
       // Omite o campo "password" do resultado
       // por questão de segurança
