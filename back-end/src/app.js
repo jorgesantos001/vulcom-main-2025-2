@@ -21,16 +21,24 @@ app.use(cookieParser());
 
 // Rate limiter: limita a quantidade de requisições que cada usuário/IP
 // pode efetuar dentro de um determinado intervalo de tempo
-import { rateLimit } from "express-rate-limit";
 
+/*
+Vulnerabilidade: API4:2023 – Consumo irrestrito de recursos
+Vulnerabilidade evitada por colocar rate limiting:express-rate-limit, limitando o número de requisições por IP para prevenir ataques.
+*/
+import { rateLimit } from "express-rate-limit";
 const limiter = rateLimit({
   windowMs: 60 * 1000, // Intervalo: 1 minuto
   limit: 20, // Máximo de 20 requisições
 });
-
 app.use(limiter);
 
 /*********** ROTAS DA API **************/
+
+/*
+Vulnerabilidade: API5:2023 – Falha de autenticação a nível de função
+vulnerabilidade evitada ao usar middleware de verificaçao e autorização nas rotas protegidas, para que apenas usuários autenticados e autorizados possam acessar dados sensíveis.
+*/
 // Middleware de verificação do token de autorização
 import auth from "./middleware/auth.js";
 app.use(auth);

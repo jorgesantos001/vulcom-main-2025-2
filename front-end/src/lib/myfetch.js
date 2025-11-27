@@ -1,3 +1,8 @@
+
+/*
+Vulnerabilidade: API4:2023 – Consumo irrestrito de recursos
+A vulnerabilidade foi evitada com o tratamento de erros e controle de respostas, prevenindo tentativas automáticas ilimitadas dos usuarios.
+*/
 /**
  * Biblioteca 'myfetch'
  * 

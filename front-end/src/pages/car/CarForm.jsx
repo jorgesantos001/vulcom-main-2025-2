@@ -17,6 +17,11 @@ import useConfirmDialog from "../../ui/useConfirmDialog";
 import useNotification from "../../ui/useNotification";
 import useWaiting from "../../ui/useWaiting";
 import { ZodError } from "zod";
+
+/*
+Vulnerabilidade: API5:2023 – Falha de autenticação a nível de função
+foi evitada a vulnerabilidade por garantir que apenas usuários autenticados possam acessar e enviar o formulário, protegendo partes sensíveis da aplicacao.
+*/
 import Car from "../../models/Car";
 
 export default function CarForm() {

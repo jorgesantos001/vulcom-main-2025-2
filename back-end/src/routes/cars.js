@@ -1,3 +1,7 @@
+/*
+    Vulnerabilidade: API9:2023 – Gerenciamento inapropriado do inventário
+    Foi evitada por manter a documentação das rotas adequada sem expor endpoints de debug.
+*/
 import { Router } from 'express'
 import controller from '../controllers/cars.js'
 
